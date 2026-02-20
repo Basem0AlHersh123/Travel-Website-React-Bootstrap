@@ -14,8 +14,8 @@ import {Routes,Route} from 'react-router-dom';
 // react array function  extension  rafce
 import About from './components/about.jsx';
 import React from 'react';
-import Contact from './components/contact.jsx';
-
+import ContactUs from './components/ContactUs.jsx';
+import Blog from './components/Blogs.jsx';
 function App() {
   return (
     <div className="App">
@@ -24,8 +24,8 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/destination' element={<Categories/>}/>
-        <Route path='/blog' element={<About/>}/>
-        <Route path='/contact' element={<Contact/>}/>
+        <Route path='/blog' element={<Blog/>}/>
+        <Route path='/contact' element={<ContactUs/>}/>
         <Route path='/signin' element={<SignIn/>}/>
       </Routes>
       <Footer />

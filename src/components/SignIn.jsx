@@ -2,27 +2,21 @@
 import { useState } from "react";
 import "../signin.css"; 
 function SignIn() {
-  const [isLogin, setIsLogin] = useState(true);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleSubmit = (e) => {
+  const [isLogin,setIsLogin]=useState(true);
+  const [isShow,setIsShow]=useState(false);
+  const [RememberMe,setRememberMe]=useState(false);
+  const [isLoading,setIsLoading]=useState(false);
+  const [email,setEmail]=useState("");
+  const [password,setPassword]=useState("");
+  const handleSubmit=(e)=>{
     e.preventDefault();
     setIsLoading(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsLoading(false);
-      alert(isLogin ? "Successfully signed in!" : "Account created successfully!");
-    }, 1500);
-  };
-
-  const handleSocialLogin = (provider) => {
-    alert(`Connecting with ${provider}...`);
-  };
-
+    console.log(isLogin, email, password, RememberMe, isLoading);
+  }
+  const handleSocialLogin=(provider)=>{
+    alert(`Connecting with ${provider}...`)
+  }
+  
   return (
     <div className="signin-page min-vh-100 d-flex align-items-center p-3">
       {/* Animated Background */}
@@ -132,7 +126,11 @@ function SignIn() {
                     <div className="d-flex mb-4" style={{ maxWidth: '300px', margin: '0 auto' }}>
                       <button
                         className={`btn flex-fill ${isLogin ? 'btn-primary' : 'btn-outline-primary'} rounded-pill me-2`}
-                        onClick={() => setIsLogin(true)}
+                        onClick={() => {
+                          setIsLogin(true);
+                          setIsShow(true);
+                        }
+                        }
                       >
                         Sign In
                       </button>
@@ -174,7 +172,7 @@ function SignIn() {
                             className="form-control"
                             placeholder="you@example.com"
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={(e)=>{setEmail(e.target.value)}}
                             required
                           />
                         </div>
@@ -210,8 +208,8 @@ function SignIn() {
                               className="form-check-input"
                               type="checkbox"
                               id="rememberMe"
-                              checked={rememberMe}
-                              onChange={(e) => setRememberMe(e.target.checked)}
+                              checked={RememberMe}
+                              onChange={(e)=>setRememberMe(e.target.checked)}
                             />
                             <label className="form-check-label" htmlFor="rememberMe">
                               Remember me
@@ -243,6 +241,7 @@ function SignIn() {
                         type="submit"
                         className="btn btn-primary btn-lg w-100 mb-4 py-3"
                         disabled={isLoading}
+                        onClick={()=> setIsShow(true)}
                       >
                         {isLoading ? (
                           <>
@@ -320,8 +319,15 @@ function SignIn() {
           </div>
         </div>
       </div>
+      {isShow?(
+    <ul>
+      <li>email:{email}</li>
+      <li>password:{password}</li>
+      <li>email:{email}</li>
+    </ul>
+  ):null} 
     </div>
+
   );
 }
-
 export default SignIn;

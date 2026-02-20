@@ -28,7 +28,7 @@ function NavigationBar() {
   }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark w-100">
       <div className="container-fluid">
         <Link to="/" className="fw-bold navbar-brand">
           <i className="bi bi-airplane me-2"></i>
@@ -47,8 +47,8 @@ function NavigationBar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         
-        <div id="navbarCollapse" className="collapse navbar-collapse">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
+        <div id="navbarCollapse" className="collapse navbar-collapse justify-content-center">
+          <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
             <li className="nav-item">
               <Link to="/" className="nav-link" aria-current='page'>
                 Home
@@ -83,12 +83,12 @@ function NavigationBar() {
               placeholder="destinations..."
               aria-label="Search"
             />
-            <button
-              className="btn btn-outline-light"
-              type="submit"
-            >
-              🔍
-            </button>
+              <button
+                className="btn btn-outline-light"
+                type="submit"
+              >
+                🔍
+              </button>
           </form>
           
           <Link to="/signin" className="btn btn-outline-warning me-2">

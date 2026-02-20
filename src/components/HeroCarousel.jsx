@@ -1,7 +1,7 @@
-import Image1 from "../../public/images/1.jpg"
-import Image2 from "../../public/images/2.jpg"
-import Image3 from "../../public/images/3.webp"
-import Image4 from "../../public/images/4.jpg"
+import Image1 from "/images/1.jpg"
+import Image2 from "/images/2.jpg"
+import Image3 from "/images/3.webp"
+import Image4 from "/images/4.jpg"
 document.cookie="username=Hammood; theme=dark;path=/cookies";
 console.log(document.cookie);
 function HeroCarousel(){
